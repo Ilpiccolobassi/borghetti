@@ -11,7 +11,7 @@ table {
 
     border-spacing: 0px;
 
-    background-color: #3499f8;
+    background-color: 	#99f834;
 
     font-size: large;
 
@@ -21,7 +21,7 @@ table {
 
 table th, table td, table tr{
 
-    background-color: rgb(186, 245, 230);
+    background-color: rgb(0, 0, 52.2);
 
     width: 105px;
 
@@ -35,6 +35,6 @@ table th, table td, table tr{
 
 table th{
 
-    background-color: rgb(6, 255, 243);
+    background-color: rgb(0, 0, 0);
 
 }
