@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Model X</title>
+</head>
+<body>
+    <!-- Titolo del modello -->
+    <header>
+        <h1>Tesla Model X</h1>
+    </header>
+
+    <!-- Immagine dell'auto -->
+    <img src="tesla_model_x.jpg" alt="Tesla Model X" width="600">
+
+    <!-- Tabella con prezzi -->
+    <h2>Prezzi per Modello e Tipologia di Alimentazione</h2>
+    <table border="1">
+        <tr>
+            <th>Modello</th>
+            <th>Alimentazione</th>
+            <th>Prezzo</th>
+        </tr>
+        <tr>
+            <td>Standard</td>
+            <td>Elettrico</td>
+            <td>89.990 €</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Elettrico</td>
+            <td>109.990 €</td>
+        </tr>
+    </table>
+
+    <!-- Lista non ordinata di optional -->
+    <h2>Optional Disponibili</h2>
+    <ul>
+        <li>Pilotaggio automatico avanzato</li>
+        <li>Sedili ventilati in pelle</li>
+        <li>Tetto in vetro panoramico</li>
+        <li>Ricarica rapida Supercharger</li>
+        <li>Impianto audio premium</li>
+    </ul>
+
+    <!-- Paragrafo che descrive i punti di forza -->
+    <h2>Punti di Forza</h2>
+    <p>
+        La Tesla Model X combina prestazioni straordinarie, un'autonomia leader nel settore e una sicurezza senza compromessi. 
+        È dotata di tecnologie innovative come il sistema di guida autonoma e una gestione energetica intelligente.
+    </p>
+
+    <!-- Link a una pagina esterna -->
+    <p>
+        Per maggiori dettagli, visita il sito ufficiale della 
+        <a href="https://www.tesla.com/it_it/modelx" target="_blank">Tesla Model X</a>.
+    </p>
+
+    <!-- Modulo -->
+    <h2>Richiedi Informazioni</h2>
+    <form action="/invia-dati" method="post">
+        <!-- Campo nome della concessionaria -->
+        <label for="concessionaria">Nome della concessionaria visitata:</label><br>
+        <input type="text" id="concessionaria" name="concessionaria"><br><br>
+
+        <!-- Spunta per trattamento dei dati -->
+        <label>
+            <input type="checkbox" id="privacy" name="privacy" required>
+            Acconsento al trattamento dei dati personali
+        </label><br><br>
+
+        <!-- Scelta multipla per modello di interesse -->
+        <label for="modello">Modello di interesse:</label><br>
+        <select id="modello" name="modello">
+            <option value="standard">Standard</option>
+            <option value="performance">Performance</option>
+        </select><br><br>
+
+        <!-- Pulsante invia -->
+        <button type="submit">Invia</button>
+    </form>
+</body>
+</html>
 
