@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #E8E5CE;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #4b3d3d;
+  color: white;
+}
+
+.dropdown:active{
+ color: #bc360a;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4b3d3d;
+  min-width: 160px;
+  box-shadow: aqua;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #bc360a;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">I Principi Fondamentali</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Benefici</a>
+    <div class="dropdown-content">
+      <a href="#">Benefici Ambientali</a>
+      <a href="#">Benefici Economici</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Aziende</a>
+    <div class="dropdown-content">
+      <a href="#">Il ruolo delle aziende</a>
+      <a href="#">I casi di successo</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Sviluppo</a>
+    <div class="dropdown-content">
+      <a href="#">Inovazione e tecnologie</a>
+      <a href="#">economia circolare e rifiuti</a>
+      <a href="#">Normative e politiche</a>
+    </div>
+  </li>
+  <li style="float:right"><a href="#"><i class="fa fa-fw fa-search"></i></a></li>
+</ul>
+
+
+
+</body>
+</html>
+  
+  
