@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/x-icon" href="Buzz_Skin-Default.webp">
+  <style>
+    /* ===== STILI GLOBALI ===== */
+    body {
+      background-image: url(SfondoSito.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    header {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .site-title {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 64px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* ===== STILI PER LA NAVBAR E IL MENÙ A DISCESA ===== */
+    ul {
+      font-size: x-large;
+      font-family: 'Calibri';
+      list-style-type: none;
+      margin: 0;
+      padding: 0;      
+      background-color: rgba(255, 255, 255, 0.45);
+      margin-top: 50px;
+    }
+    li {
+      float: left;
+    }
+    li a, .dropbtn {
+      display: inline-block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+      background-color: rgb(75, 61, 61, 0.45);
+      color: white;
+    }
+    .dropdown:active {
+      color: #bc360a;
+    }
+    li.dropdown {
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgb(243, 243, 243, 0.45);
+      min-width: 160px;
+      box-shadow: rgb(243, 243, 243);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      font-family: 'Calibri';
+      font-size: large;
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap;
+      text-align: left;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .dropdown-content a:hover {
+      background-color: #42bc0a;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    ul.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.45);
+      font-size: x-large;
+      font-family: 'Calibri';
+      margin: 0;
+      padding: 0 20px;
+      list-style-type: none;
+      margin-top: 50px;
+      height: 60px;
+    }
+    .left-menu {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* ===== STILI PER LA FUNZIONALITÀ DI RICERCA E LOGIN ===== */
+    .right-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .search-container,
+    .login-container {
+      position: relative;
+      float: right;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: right 0.3s ease-in-out;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-box {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      transition: right 0.3s ease-in-out;
+    }
+    .search-container.open .search-box {
+      display: block;
+      right: 0;
+    }
+    .search-container.open i {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease-in-out;
+    }
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+    .login-container a {
+      display: inline-block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: inherit;
+      border-radius: 0;
+    }
+    .login-container a:hover {
+      background-color: rgba(75, 61, 61, 0.45);
+      color: white;
+    }
+    .right-icons.search-open .login-container {
+      transform: translateX(-250px);
+      transition: transform 0.3s ease-in-out;
+    }
+    .search-box input {
+      width: 300px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 16px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== STILI PER IL MODAL DI LOGIN (gestiti principalmente da Bootstrap) ===== */
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="site-title">Economia circolare</h1>
+  </header>
+  <!-- ===== HTML: NAVBAR E MENÙ A DISCESA ===== -->
+  <ul class="navbar">
+    <div class="left-menu">
+      <li><a href="#home">I Principi Fondamentali</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Benefici</a>
+        <div class="dropdown-content">
+          <a href="#">Benefici Ambientali</a>
+          <a href="#">Benefici Economici</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Aziende</a>
+        <div class="dropdown-content">
+          <a href="#">Il ruolo delle aziende</a>
+          <a href="#">I casi di successo</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Sviluppo</a>
+        <div class="dropdown-content">
+          <a href="#">Inovazione e tecnologie</a>
+          <a href="#">Economia circolare e rifiuti</a>
+          <a href="#">Normative e politiche</a>
+        </div>
+      </li>
+    </div>
+    <div class="right-icons">
+      <li class="login-container">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <span class="login-text">Login</span>
+          <i class="fa fa-fw fa-user"></i>
+        </a>
+      </li>
+      <li class="search-container">
+        <i class="fa fa-fw fa-search" onclick="toggleSearchBox()"></i>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Cerca..." />
+        </div>
+      </li>
+    </div>
+  </ul>
+
+  <!-- ===== HTML: MODAL DI LOGIN ===== -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="Inserisci la tua email">
+            </div>
+            <div class="mb-3">
+              <label for="passwordInput" class="form-label">Password</label>
+              <input type="password" class="form-control" id="passwordInput" placeholder="Inserisci la password">
+            </div>
+            <div class="mb-3">
+              <label for="confirmPasswordInput" class="form-label">Conferma Password</label>
+              <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Conferma la password">
+            </div>
+            <div class="form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="togglePassword">
+              <label class="form-check-label" for="togglePassword">Mostra Password</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+          <button type="button" class="btn btn-primary" id="btnLogin">Accedi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SEZIONE SCRIPT: FUNZIONALITÀ ===== -->
+  <script>
+    /* --- Funzionalità per la Ricerca --- */
+    function toggleSearchBox() {
+      var searchContainer = document.querySelector('.search-container');
+      var rightIcons = document.querySelector('.right-icons');
+      searchContainer.classList.toggle('open');
+      rightIcons.classList.toggle('search-open');
+      document.getElementById('searchInput').focus();
+    }
+    document.addEventListener('click', function(event) {
+      var searchContainer = document.querySelector('.search-container');
+      var rightIcons = document.querySelector('.right-icons');
+      if (!searchContainer.contains(event.target)) {
+        searchContainer.classList.remove('open');
+        rightIcons.classList.remove('search-open');
+      }
+    });
+
+    /* --- Funzionalità per il Modal Login --- */
+    var loginModalEl = document.getElementById('loginModal');
+    loginModalEl.addEventListener('show.bs.modal', function () {
+      document.getElementById('emailInput').value = "";
+      document.getElementById('passwordInput').value = "";
+      document.getElementById('confirmPasswordInput').value = "";
+      document.getElementById('passwordInput').setAttribute('type', 'password');
+      document.getElementById('confirmPasswordInput').setAttribute('type', 'password');
+      document.getElementById('togglePassword').checked = false;
+    });
+    document.getElementById('togglePassword').addEventListener('change', function() {
+      var type = this.checked ? 'text' : 'password';
+      document.getElementById('passwordInput').setAttribute('type', type);
+      document.getElementById('confirmPasswordInput').setAttribute('type', type);
+    });
+    document.getElementById('btnLogin').addEventListener('click', function(){
+      var password = document.getElementById('passwordInput').value;
+      var confirmPassword = document.getElementById('confirmPasswordInput').value;
+      if(password === confirmPassword && password !== ""){
+          var modalInstance = bootstrap.Modal.getInstance(loginModalEl);
+          if(!modalInstance){
+              modalInstance = new bootstrap.Modal(loginModalEl);
+          }
+          modalInstance.hide();
+      } else {
+          alert("Le password non corrispondono!");
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
