@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="Buzz_Skin-Default.webp">
-<h1><a style="text-decoration:none;" href="https://ilpiccolobassi.github.io/borghetti/" >🠔</a></h1>
-<style>
-ul {
+  <style>
+    body {
+      background-image: url("https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;  
+    }
+    
+    ul {
+      font-size: larger;
+      font-family: 'Calibri';
       list-style-type: none;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: #E8E5CE;
+      background-color: rgba(255, 255, 255, 0.45); 
+      margin-top: 50px;
     }
 
     li {
@@ -27,7 +37,7 @@ ul {
     }
 
     li a:hover, .dropdown:hover .dropbtn {
-      background-color: #4b3d3d;
+      background-color:  rgb(75, 61, 61, 0.45);
       color: white;
     }
 
@@ -42,14 +52,16 @@ ul {
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #4b3d3d;
+      background-color: rgb(243, 243, 243, 0.45);
       min-width: 160px;
-      box-shadow: aqua;
+      box-shadow: rgb(243, 243, 243);
       z-index: 1;
     }
 
     .dropdown-content a {
-      color: white;
+      font-family: 'Calibri';
+      font-size: large;
+      color: black;
       padding: 12px 16px;
       text-decoration: none;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -65,12 +77,12 @@ ul {
       display: block;
     }
 
-    
-    .search-container {
+    .search-container, .login-container {
       position: relative;
       float: right;
       padding: 14px 16px;
       cursor: pointer;
+      transition: right 0.3s ease-in-out; /* Per rendere il movimento fluido */
     }
 
     .search-box {
@@ -100,9 +112,38 @@ ul {
       transition: transform 0.3s ease-in-out;
     }
 
+    .login-container {
+  position: absolute;
+  float: right;
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  transition: right 0.3s ease-in-out; 
+}
+
+.login-container a {
+  display: inline-flex; 
+  justify-content: center; 
+  align-items: right; 
+  padding: 10px 15px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.login-container a:hover {
+  background-color: rgb(75, 61, 61, 0.45);
+  color: white;
+}
+
+
     
-    .search-container i {
-      transition: transform 0.3s ease-in-out;
+    .search-container.open + .login-container {
+      right: 150px; 
+      transition: right 0.3s ease-in-out;
     }
 
   </style>
@@ -129,7 +170,7 @@ ul {
     <a href="javascript:void(0)" class="dropbtn">Sviluppo</a>
     <div class="dropdown-content">
       <a href="#">Inovazione e tecnologie</a>
-      <a href="#">economia circolare e rifiuti</a>
+      <a href="#">Economia circolare e rifiuti</a>
       <a href="#">Normative e politiche</a>
     </div>
   </li>
@@ -139,34 +180,34 @@ ul {
       <input type="text" id="searchInput" placeholder="Cerca..." />
     </div>
   </li>
+  
+  <li class="login-container">
+    <a href="login.html">
+      <i class="fa fa-fw fa-user"></i>
+    </a>
+  </li>
 </ul>
 
 <script>
-  
   function toggleSearchBox() {
     var searchContainer = document.querySelector('.search-container');
     searchContainer.classList.toggle('open');
     document.getElementById('searchInput').focus();
   }
 
-  
   document.addEventListener('click', function(event) {
     var searchContainer = document.querySelector('.search-container');
     var searchBox = document.querySelector('.search-box');
     var searchIcon = document.querySelector('.search-container i');
     
-    
     if (!searchContainer.contains(event.target)) {
-      
       searchContainer.classList.remove('open');
     }
   });
-
 </script>
-
-
 
 </body>
 </html>
+
   
   
