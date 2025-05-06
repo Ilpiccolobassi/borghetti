@@ -1,213 +1,137 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="icon" type="image/x-icon" href="Buzz_Skin-Default.webp">
+  <title>Navbar con Topic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-image: url("SfondoSito");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;  
+      background-color: bisque;
+      font-family: 'Calibri', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    
-    ul {
-      font-size: larger;
-      font-family: 'Calibri';
+    /* ===== STILI PER LA NAVBAR E IL MENÙ A DISCESA ===== */
+    .navbar-custom {
+      background-color: #f8f8f8; 
+      margin-top: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .navbar-custom ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background-color: rgba(255, 255, 255, 0.45); 
-      margin-top: 50px;
+      overflow: visible;
     }
-
-    li {
+    .navbar-custom li {
       float: left;
+      position: relative;
     }
-
-    li a, .dropbtn {
+    .navbar-custom li a, .navbar-custom .dropbtn {
       display: inline-block;
-      color: black;
+      color: #333;
       text-align: center;
-      padding: 14px 16px;
+      padding: 14px 20px;
       text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
     }
-
-    li a:hover, .dropdown:hover .dropbtn {
-      background-color:  rgb(75, 61, 61, 0.45);
-      color: white;
+    .navbar-custom li a:hover,
+    .navbar-custom .dropdown:hover .dropbtn,
+    .navbar-custom li a:focus {
+      background-color: #5ab1ef;
+      color: #fff;
     }
-
-    .dropdown:active {
-      color: #bc360a;
-    }
-
-    li.dropdown {
-      display: inline-block;
-    }
-
+    /* ===== STILI PER IL DROPDOWN SENZA SCRIPT ===== */
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: rgb(243, 243, 243, 0.45);
-      min-width: 160px;
-      box-shadow: rgb(243, 243, 243);
+      background-color: rgba(243, 243, 243, 0.95);
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
       z-index: 1;
     }
-
     .dropdown-content a {
-      font-family: 'Calibri';
-      font-size: large;
-      color: black;
+      font-size: medium;
+      color: #333;
       padding: 12px 16px;
       text-decoration: none;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       display: block;
-      text-align: left;
+      white-space: nowrap;
+      transition: background-color 0.3s, color 0.3s;
+      width: 100%;
+      box-sizing: border-box;
     }
-
-    .dropdown-content a:hover {
-      background-color: #bc360a;
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background-color: #5ab1ef;
+      color: #fff;
     }
-
+    /* ===== MOSTRA IL DROPDOWN AL PASSAGGIO DEL MOUSE ===== */
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
-    .search-container, .login-container {
-      position: relative;
-      float: right;
-      padding: 14px 16px;
-      cursor: pointer;
-      transition: right 0.3s ease-in-out; /* Per rendere il movimento fluido */
+    /* ===== CLEAR FLOATS ===== */
+    .navbar-custom::after {
+      content: "";
+      clear: both;
+      display: table;
     }
-
-    .search-box {
-      margin-top: 6px;
-      position: absolute;
-      margin-right: 6px;
-      top: 0;
-      right: -200px;
-      transition: right 0.3s ease-in-out;
-      display: none;
-    }
-
-    .search-box input {
-      padding: 8px;
-      font-size: 15px;
-      border: none;
-      border-radius: 1px;
-    }
-
-    .search-container.open .search-box {
-      display: block;
-      right: 0;
-    }
-
-    .search-container.open i {
-      transform: rotate(90deg);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .login-container {
-  position: absolute;
-  float: right;
-  padding: 14px 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  transition: right 0.3s ease-in-out; 
-}
-
-.login-container a {
-  display: inline-flex; 
-  justify-content: center; 
-  align-items: right; 
-  padding: 10px 15px;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.login-container a:hover {
-  background-color: rgb(75, 61, 61, 0.45);
-  color: white;
-}
-
-
-    
-    .search-container.open + .login-container {
-      right: 150px; 
-      transition: right 0.3s ease-in-out;
-    }
-
   </style>
 </head>
 <body>
-
-<ul>
-  <li><a href="#home">I Principi Fondamentali</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Benefici</a>
-    <div class="dropdown-content">
-      <a href="#">Benefici Ambientali</a>
-      <a href="#">Benefici Economici</a>
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Aziende</a>
-    <div class="dropdown-content">
-      <a href="#">Il ruolo delle aziende</a>
-      <a href="#">I casi di successo</a>
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Sviluppo</a>
-    <div class="dropdown-content">
-      <a href="#">Inovazione e tecnologie</a>
-      <a href="#">Economia circolare e rifiuti</a>
-      <a href="#">Normative e politiche</a>
-    </div>
-  </li>
-  <li class="search-container">
-    <i class="fa fa-fw fa-search" onclick="toggleSearchBox()"></i>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Cerca..." />
-    </div>
-  </li>
-  
-  <li class="login-container">
-    <a href="login.html">
-      <i class="fa fa-fw fa-user"></i>
-    </a>
-  </li>
-</ul>
-
-<script>
-  function toggleSearchBox() {
-    var searchContainer = document.querySelector('.search-container');
-    searchContainer.classList.toggle('open');
-    document.getElementById('searchInput').focus();
-  }
-
-  document.addEventListener('click', function(event) {
-    var searchContainer = document.querySelector('.search-container');
-    var searchBox = document.querySelector('.search-box');
-    var searchIcon = document.querySelector('.search-container i');
-    
-    if (!searchContainer.contains(event.target)) {
-      searchContainer.classList.remove('open');
-    }
-  });
-</script>
-
+  <nav class="navbar-custom">
+    <ul>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Giornale</a>
+        <div class="dropdown-content">
+          <a href="https://www.corriere.it" target="_blank">Corriere della Sera</a>
+          <a href="https://www.repubblica.it" target="_blank">La Repubblica</a>
+          <a href="https://www.ilsole24ore.com" target="_blank">Il Sole 24 Ore</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Sport</a>
+        <div class="dropdown-content">
+          <a href="https://www.sky.it/sport" target="_blank">Sky Sport</a>
+          <a href="https://www.espn.com" target="_blank">ESPN</a>
+          <a href="https://www.dazn.com" target="_blank">DAZN</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Arte</a>
+        <div class="dropdown-content">
+          <a href="https://www.artribune.com" target="_blank">Artribune</a>
+          <a href="https://www.artforum.com" target="_blank">Artforum</a>
+          <a href="https://www.theartnewspaper.com" target="_blank">The Art Newspaper</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Tecnologia</a>
+        <div class="dropdown-content">
+          <a href="https://techcrunch.com" target="_blank">TechCrunch</a>
+          <a href="https://www.wired.com" target="_blank">Wired</a>
+          <a href="https://www.theverge.com" target="_blank">The Verge</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Intrattenimento</a>
+        <div class="dropdown-content">
+          <a href="https://www.netflix.com" target="_blank">Netflix</a>
+          <a href="https://www.rottentomatoes.com" target="_blank">Rotten Tomatoes</a>
+          <a href="https://www.hbo.com" target="_blank">HBO</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Cultura</a>
+        <div class="dropdown-content">
+          <a href="https://www.nationalgeographic.com" target="_blank">National Geographic</a>
+          <a href="https://www.bbc.com/culture" target="_blank">BBC Culture</a>
+          <a href="https://www.theguardian.com/culture" target="_blank">The Guardian Culture</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </body>
 </html>
-
-  
   
