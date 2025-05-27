@@ -1,59 +1,109 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>My Page Title</title>
-<link rel="icon" type="image/x-icon" href="Buzz_Skin-Default.webp">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Borghetti</title>
-<style> 
-    table{
-        border: 1px, solid black;
-    }
-    a:link { color: white; } 
-    a:visited { color: white; } 
-    a:hover { color: #FF8000; } 
-    a:active { color: arancione; } 
-    a { display: inline-block; transition: transform 0.3s ease; } 
-    a:hover { transform: scale(1.5); }
-body {
-    background-image: url('pexels-philippedonn-1169754.jpg');
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    background-position: center; 
-    color: white;
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Borghetti</title>
+    <link rel="icon" type="image/x-icon" href="Buzz_Skin-Default.webp" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-</style>
+        body {
+            background-image: url('pexels-philippedonn-1169754.jpg');
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-position: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem 3rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        li {
+            text-align: center;
+        }
+
+        nav {
+            max-width: 600px; 
+            margin: 0 auto;
+        }
+
+        a {
+            font-size: 4rem; 
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+            user-select: none;
+
+            white-space: normal;        
+            overflow-wrap: break-word;  
+            word-break: break-word;      
+            max-width: 100%;             
+        }
+
+
+        a:hover,
+        a:focus {
+            color: #fadbaf; 
+            transform: scale(1.4);
+            outline: none;
+        }   
+
+
+        @media (max-width: 700px) {
+            a {
+                font-size: 3rem;
+            }
+            nav {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
 </head>
-    
-
 <body>
-    <table>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="Es1.html" >- Es1 -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="Es2.html" >- Es2 -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="Tabella.html" >- Tabella -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="Macchina.html" >- Macchina -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="Registrazione.html" >- Registrati -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="ricetta_B.html" >- Ricetta -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="TabellaCSS.html" >- Tabella con CSS -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="BoxFlottanti.html" >- Box Flottanti -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="https://ilpiccolobassi.altervista.org" >- Sito Ed. Fisica -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="navBar.html" >- NavBar -</a></center> </h1></p>
-<p><h1><center><a style="font-size:10vh; text-decoration:none; color="black"; href="SitoJS.html" >- Sito con JS -</a></center> </h1></p>
-    </table>
+    <nav>
+        <ul>
+            <li><a href="Es1.html">- Es1 -</a></li>
+            <li><a href="Es2.html">- Es2 -</a></li>
+            <li><a href="Tabella.html">- Tabella -</a></li>
+            <li><a href="Macchina.html">- Macchina -</a></li>
+            <li><a href="Registrazione.html">- Registrati -</a></li>
+            <li><a href="ricetta_B.html">- Ricetta -</a></li>
+            <li><a href="TabellaCSS.html">- Tabella CSS -</a></li>
+            <li><a href="BoxFlottanti.html">- Box Flottanti -</a></li>
+            <li><a href="https://ilpiccolobassi.altervista.org" target="_blank" rel="noopener noreferrer">- Sito Ed. Fisica -</a></li>
+            <li><a href="navBar.html">- NavBar -</a></li>
+            <li><a href="SitoJS.html">- Sito con JS -</a></li>
+        </ul>
+    </nav>
 </body>
-</body>
-
-</body>
-    
 </html>
-    
-   
       
 
 
